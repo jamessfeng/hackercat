@@ -2,9 +2,30 @@
 
 {% block content %}
 <form method = "POST">
-	<input name= "amount"placeholder = "enter amount">
-    <button class = "waves-effect waves-light btn" type= "nWater">Add Water</button>
+    {# Checkbox for performing centre search #}
+        <div>
+            <label>
+                <input type="checkbox" id="do_centre_search" name="do_centre_search" value={{ do_centre_search }}
+                        {% if do_centre_search %} checked {% endif %}>
+                <span class="black-text">View Centres</span>
+            </label>
+        </div>
 
-    <button class = "waves-effect waves-light btn" type= "nShade">Add Shade</button>
+        {# Checkbox for performing user search #}
+        <div>
+            <label>
+            <input type="checkbox" id="do_user_search" name="do_user_search" value={{ do_user_search }}
+                        {% if do_user_search %} checked {% endif %}>
+                <span class="black-text">View Users</span>
+            </label>
+        </div>    <button class = "waves-effect waves-light btn" value = "addWater" type= "nWater">Add Water</button>
+
+    <button class = "waves-effect waves-light btn" value = "addShade" type= "nShade">Add Shade</button>
 </form>
+	<meta http-equiv="refresh" content="1">
+	<p>
+		water level : {{water}}
+		<br><br>
+		shade level : {{shade}}
+	</p>
 {% endblock %}
