@@ -1,31 +1,56 @@
-  <!DOCTYPE html>
-  <html>
+<!DOCTYPE html>
+
+<html lang="en">
     <head>
+        {# Style sheets and favicon - included on all pages #}
+        <link rel="shortcut icon" href="/static/img/favicon.ico">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/static/css/materialize.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/general.css"/>
 
-
-
-
-
-       <div class="collection">
-    <a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
-    <a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
-    <a href="#!" class="collection-item">Alan</a>
-    <a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
-  </div>
-
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-
-
-      <link rel="shortcut icon" href="/static/img/favicon.ico">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="/static/css/materialize.min.css"/>
-      <link rel="stylesheet" type="text/css" href="/static/css/general.css"/>
+        {# Page specific CSS injection point #}
+        {% block stylesheets %}{% endblock %}     
     </head>
+
+
 
     <body>
 
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+        {# Navbar at the top of the page #}
+        <nav class="green lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+
+                {# Left side contains logo and most action buttons #}
+                <a class="left" id="logo-container" class="brand-logo" href="/"/>
+                    <img src="/static/img/caduceus_logo.svg" height="64"/>
+                </a>
+            </div>
+        </nav>
+
+        {# Container which holds the rest of the page content #}
+        <div class="container">
+            {# This is where the 'content' block is injected #}
+            {% block content%}{% endblock %}
+            {% block container %}
+
+                {# This is where we displayed 'flashed' messages #}
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            {% endblock %}
+        </div>
+
+        {# Javascript that's included on all pages #}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        {# Page specific JS injection point #}
+        {% block scripts %}{% endblock %}
     </body>
-  </html>
+</html>

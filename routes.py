@@ -2,14 +2,11 @@ from flask import flash, redirect, render_template, request, url_for, Flask
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods = ['GET', 'POST'])
 def home():
-	return render_template('base.html')
+	return render_template('home.html')
 
 
-@app.route('/<name>')
-def hello_name(name):
-    return "Hello {}!".format(name)
 
 
 

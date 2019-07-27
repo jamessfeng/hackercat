@@ -7,8 +7,14 @@
 
 /* We don't want to show text select cursor */
 html, body {
+
     cursor: default;
     height: 100%;
+
+}
+
+div {
+
 }
 
 /* We don't want the nav bar to wrap over multiple lines */
