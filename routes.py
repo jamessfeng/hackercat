@@ -7,12 +7,6 @@ counter = 1
 @app.route('/', methods = ['GET', 'POST'])
 def home():
 
-        # iq = request.form["iq"]
-
-
-    global counter
-    counter += 1
-
     # generate random for now
     generateRandomInputFile("./input/waterLevel", 0, 1001)
     generateRandomInputFile("./input/sunlightLevel", 0, 1001)
@@ -21,6 +15,8 @@ def home():
     water = readInputFile("./input/waterLevel")
     sunlight = readInputFile("./input/sunlightLevel")
         
+
+
     # debugging
     print(water)
     print(sunlight)
@@ -32,9 +28,9 @@ def home():
         # are we changing water or shade
         action = request.form["action"]
 
-
         # handle action
         # update shit here
+
         if (action == 'water'):
             print("WATER")
             water = updateWater()
@@ -92,14 +88,16 @@ def average(arr):
     for n in arr:
         total += int(n) 
 
-    return total/len(arr)
+    return total//len(arr)
 
 def updateWater():
-
+    # output signal to arduino
+    generateRandomInputFile('./output/waterLevel', 0, random.randint(1,1000))
     return 100
 
 def updateSunlight():
-
+    generateRandomInputFile('./output/sunlightLevel', 0, random.randint(1,1000))
+    # output signal to arduino
     return 100
 
 if __name__ == "__main__":

@@ -2,6 +2,36 @@
 
 <html lang="en">
     <head>
+        <style> 
+                .background {
+                    /*background-image: url('http://www.clker.com/cliparts/0/f/b/8/1197091304272882353carlitos_Cartoon_Landscape.svg.hi.png');*/
+                    /*background-image: url('https://www.bhg.com.au/media/20033/woman-watering-plants.jpg');*/
+                        /*background-image: url(background.png);*/
+                    /*background-image: url(/../background.png);*/
+                    /*background-size: contain;*/
+                    /*background-size: 100% 100%;*/
+                    /*filter: blur(8px);*/
+
+                    position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+/*  background-image: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_527bf56961712_1.JPG');*/
+  background-image: url('https://www.bhg.com.au/media/20033/woman-watering-plants.jpg');
+  width: 100%;
+  height: 100%;
+  /*background-size: 100% 100%;*/
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+
+                }
+        </style>
+
         {# Style sheets and favicon - included on all pages #}
         <link rel="shortcut icon" href="/static/img/favicon.ico">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,20 +43,9 @@
     </head>
 
 
-
-    <body>
-
-        {# Navbar at the top of the page #}
-        <nav class="green lighten-1" role="navigation">
-            <div class="nav-wrapper container">
-
-                {# Left side contains logo and most action buttons #}
-                <a class="left" id="logo-container" class="brand-logo" href="/"/>
-                    <img src="/static/img/caduceus_logo.svg" height="64"/>
-                </a>
-            </div>
-        </nav>
-
+    <body style = "display: flex; align-items: center; justify-content: center;">
+        
+        <div class='background'> </div>
         {# Container which holds the rest of the page content #}
         <div class="container">
             {# This is where the 'content' block is injected #}
@@ -53,4 +72,5 @@
         {# Page specific JS injection point #}
         {% block scripts %}{% endblock %}
     </body>
+
 </html>
