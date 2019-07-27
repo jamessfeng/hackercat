@@ -1,20 +1,17 @@
 from flask import flash, redirect, render_template, request, url_for, Flask
-import app.application
 
-a = app.application.app
+app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'home'
+	return render_template('base.html')
 
 
 @app.route('/<name>')
 def hello_name(name):
     return "Hello {}!".format(name)
 
-# if __name__ == '__main__':
-#     app.run()
 
 
-# def run():
-# 	app.run()
+if __name__ == "__main__":
+	app.run()
