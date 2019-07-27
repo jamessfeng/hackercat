@@ -62,14 +62,14 @@ def readInputFile(fileName):
     file = open(fileName, 'r')
     content = file.read().strip() # remove leading/trailing spaces
     content = content.split("\n") # split to calculate avg
-
+    
     return average(content)
 
 
 def generateRandomInputFile(fileName, low, high):
     file = open(fileName, 'w')
 
-    for _ in range(random.randint(0, 100)):
+    for _ in range(random.randint(1, 100)):
         file.write(str(random.randint(low,high)) + "\n")
     # testing function because i don't have the input values yet
 
