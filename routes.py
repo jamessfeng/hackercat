@@ -28,8 +28,16 @@ def home():
     if (request.method == "POST"):
         # water the plant with x water
         # shade the plant with x shade
-        amount = request.form["amount"]
-        print(amount + "POST REQUEST")
+        action = request.form["action"]
+
+        if (action == 'addWater'):
+            print("WATER")
+            # addWater()
+
+        elif (action == 'addShade'):
+            print("SHADE")
+            # addShade()
+        print(water + "POST REQUEST")
 
 
 
