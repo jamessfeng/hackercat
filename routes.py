@@ -15,38 +15,37 @@ def home():
 
     # generate random for now
     generateRandomInputFile("./input/waterLevel", 0, 1001)
-    generateRandomInputFile("./input/shadeLevel", 0, 1001)
+    generateRandomInputFile("./input/sunlightLevel", 0, 1001)
         
     # this will be constantly updating later
     water = readInputFile("./input/waterLevel")
-    shade = readInputFile("./input/shadeLevel")
+    sunlight = readInputFile("./input/sunlightLevel")
         
+    # debugging
     print(water)
-    print(shade)
+    print(sunlight)
 
 
     if (request.method == "POST"):
-        # water the plant with x water
-        # shade the plant with x shade
+        print("HERE!")
+
+        # are we changing water or shade
         action = request.form["action"]
 
-        if (action == 'addWater'):
-            print("WATER")
-            # addWater()
 
-        elif (action == 'addShade'):
-            print("SHADE")
-            # addShade()
-        print(water + "POST REQUEST")
-
-
-
-
-
-
+        # handle action
         # update shit here
+        if (action == 'water'):
+            print("WATER")
+            water = updateWater()
 
-    return render_template('home.html', water = water, shade = shade)
+        elif (action == 'sunlight'):
+            print("SHADE")
+            sunlight = updateSunlight()
+
+    
+    # return current values for water and sunlight
+    return render_template('home.html', water = water, sunlight = sunlight)
 
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -63,6 +62,10 @@ def battle():
 def shop():
     pass
 
+@app.route('/update', methods = ['GET', 'POST'])
+def update():
+    print("UPDATING!")
+    return render_template('home.html', water = 0, shade = 0)
 
 
 def readInputFile(fileName):
@@ -91,6 +94,13 @@ def average(arr):
 
     return total/len(arr)
 
+def updateWater():
+
+    return 100
+
+def updateSunlight():
+
+    return 100
 
 if __name__ == "__main__":
     app.run()

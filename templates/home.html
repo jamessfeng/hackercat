@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method = "POST">
-    <button class = "waves-effect waves-light btn" value = "addWater" type= "action">Add Water</button>
+<br>
+<br>
 
-    <button class = "waves-effect waves-light btn" value = "addShade" type= "action">Add Shade</button>
+<form method = "POST" action = "/">
+    <button class = "waves-effect waves-light btn" value = "water" name = "action">Add Water</button>
+    <button class = "waves-effect waves-light btn" value = "sunlight" name = "action">Add Shade</button>
 </form>
+	
 	<meta http-equiv="refresh" content="1">
 	<p>
 		water level : {{water}}
 		<br><br>
-		shade level : {{shade}}
+		sunlight level : {{sunlight}}
 	</p>
 {% endblock %}
