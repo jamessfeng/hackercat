@@ -19,18 +19,33 @@
           <span class="card-title"><font color=white>PLANT INFORMATION</font></span>
 			<p>
 
-      <table>
+      <table class = 'centered'>
+      	<thead>
+      		<th></th>
+      		<th>Level</th>
+      		<th>Optimal</th>
+      		<th></th>
+      	</thead>
+
         <tbody>
           <tr>
             <td>Sunlight</td>
+            <div class = "centre-align" style="display:flex;    align-items: center;align-content:center;flex-direction:column">
             <td ><font color="#ffff66">{{sunlight}}</font></td>
-	    	<td><button class = "waves-effect waves-light btn" value = "water" name = "action">update</button></td>
+            <td ><font color="#ffff66">{{optimalSunlight}}</font></td>
+	    	<td><button class = "waves-effect waves-light btn" value = "sunlight" name = "action"
+	    		{% if updateSunlight == 0 %} disabled {% endif %} >update</button></td>
+	    		
+	    	</div>
           </tr>
 
           <tr>
             <td>Water</td>
             <td><font color=#00ffff>{{water}}</font></td>
-            <td><button class = "waves-effect waves-light btn" value = "sunlight" name = "action">update</button></td>
+            <td><font color=#00ffff>{{optimalWater}}</font></td>
+
+            <td><button class = "waves-effect waves-light btn" value = "water" name = "action"
+            	{% if updateWater == 0 %} disabled {% endif %}>update</button></td>
           </tr>
 
         </tbody>
@@ -48,6 +63,6 @@
 </p>
 </form>
 
-	<meta http-equiv="refresh" content="10000">
+	<meta http-equiv="refresh" content="10">
 
 {% endblock %}
